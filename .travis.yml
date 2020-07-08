@@ -9,4 +9,4 @@ services:
 
 script:
     - sudo make
-    - ls -l fwts-live-*.img.xz
+    - ls -l pc.img.xz
