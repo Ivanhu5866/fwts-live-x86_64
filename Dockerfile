@@ -3,9 +3,9 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ bionic main universe" >> /et
     echo "deb-src http://archive.ubuntu.com/ubuntu/ bionic-updates main universe" >> /etc/apt/sources.list && \
     echo "deb-src http://archive.ubuntu.com/ubuntu/ bionic-security main universe" >> /etc/apt/sources.list
 RUN apt update && apt -y install build-essential git snapcraft ubuntu-image && apt-get -y build-dep livecd-rootfs
-RUN git clone --depth 1 https://github.com/alexhungce/pc-amd64-gadget-focal.git pc-amd64-gadget && \
+RUN git clone --depth 1 https://github.com/alexhungce/pc-amd64-gadget.git && \
     cd pc-amd64-gadget && snapcraft prime
-RUN git clone --depth 1 https://github.com/alexhungce/fwts-livecd-rootfs-focal.git fwts-livecd-rootfs && \
+RUN git clone --depth 1 https://github.com/alexhungce/fwts-livecd-rootfs.git && \
     cd fwts-livecd-rootfs && debian/rules binary && \
     dpkg -i ../livecd-rootfs_*_amd64.deb
 VOLUME /image
