@@ -9,6 +9,6 @@ RUN git clone --depth 1 https://github.com/alexhungce/fwts-livecd-rootfs.git && 
     cd fwts-livecd-rootfs && debian/rules binary && \
     dpkg -i ../livecd-rootfs_*_amd64.deb
 VOLUME /image
-ENTRYPOINT ubuntu-image classic -a amd64 -d -p ubuntu-cpc -s hirsute -i 850M -O /image \
+ENTRYPOINT ubuntu-image classic -a amd64 -d -p ubuntu-cpc -s impish -i 850M -O /image \
     --extra-ppas firmware-testing-team/ppa-fwts-stable pc-amd64-gadget/prime && \
     xz /image/pc.img
