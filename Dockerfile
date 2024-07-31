@@ -14,6 +14,6 @@ RUN git clone --depth 1 https://github.com/ivanhu5866/fwts-livecd-rootfs-jammy.g
     cd fwts-livecd-rootfs-jammy && debian/rules binary && \
     dpkg -i ../livecd-rootfs_*_amd64.deb
 VOLUME /image
-ENTRYPOINT ubuntu-image classic -a amd64 -d -p ubuntu-cpc -s jammy -i 850M -O /image \
+ENTRYPOINT ubuntu-image classic -a amd64 -d -p ubuntu-cpc -s noble -i 850M -O /image \
     --extra-ppas firmware-testing-team/ppa-fwts-stable pc-amd64-gadget/prime && \
     xz /image/pc.img
