@@ -10,8 +10,8 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ jammy main universe" >> /etc
 RUN apt update && apt -y install build-essential git ubuntu-image && apt-get -y build-dep livecd-rootfs
 RUN git clone --depth 1 https://github.com/ivanhu5866/pc-amd64-gadget.git && \
     cd pc-amd64-gadget && snapcraft prime
-RUN git clone --depth 1 https://github.com/ivanhu5866/fwts-livecd-rootfs-jammy.git && \
-    cd fwts-livecd-rootfs-jammy && debian/rules binary && \
+RUN git clone --depth 1 -b ubuntu/jammy https://github.com/ivanhu5866/fwts-livecd-rootfs.git && \
+    cd fwts-livecd-rootfs && debian/rules binary && \
     dpkg -i ../livecd-rootfs_*_amd64.deb
 VOLUME /image
 ENTRYPOINT ubuntu-image classic -a amd64 -d -p ubuntu-cpc -s noble -i 850M -O /image \
